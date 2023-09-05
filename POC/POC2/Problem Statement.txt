@@ -1,0 +1,24 @@
+Read a Csv file in python containing Name,Age,Dob
+
+Write your code in main.py file which is already created.
+
+All file are in RAW_DIR folder
+
+TASK: 
+
+1. Make 2 new files
+	- Cleaned_Data - The clean validated data must go in this file. 
+	There should not be any duplicate records in the file
+	- Error_Data - The error data must go in this file
+
+2. For a  single file
+	- Check file type CSV and  file name format "HUAWEI_5G_CHMEAS_PUSCH_20221222.csv"
+	- Check if the file is empty or not
+
+3. For data inside file
+	- Names should be String
+	- Age should be Integer ...should not be more than 2 digits....should not be negative 
+	- Dob should be of Datetime format "%d/%m/%Y"....Dob should not be a future date..
+	- The difference from todays date and DOB must give correct age as specified in data
+	- If the data passes all these checks, then this data will be written to Cleaned_Data 
+	file, if not to Error_Data file.

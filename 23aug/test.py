@@ -1,0 +1,2 @@
+dict={}
+print(type(dict))

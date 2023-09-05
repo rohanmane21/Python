@@ -1,0 +1,140 @@
+{
+    "Groups": [],
+    "Instances": [
+        {
+            "AmiLaunchIndex": 0,
+            "ImageId": "ami-06f621d90fa29f6d0",
+            "InstanceId": "i-00c16072c5bdec1ed",
+            "InstanceType": "t2.micro",
+            "KeyName": "bunny",
+            "LaunchTime": "2023-09-05 06:21:02",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "Placement": {
+                "AvailabilityZone": "ap-south-1a",
+                "GroupName": "",
+                "Tenancy": "default"
+            },
+            "PrivateDnsName": "ip-172-31-33-221.ap-south-1.compute.internal",
+            "PrivateIpAddress": "172.31.33.221",
+            "ProductCodes": [],
+            "PublicDnsName": "",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "StateTransitionReason": "",
+            "SubnetId": "subnet-04f0a8fa79cbeb73a",
+            "VpcId": "vpc-0fb0e9e7e2cfeab1c",
+            "Architecture": "x86_64",
+            "BlockDeviceMappings": [],
+            "ClientToken": "facd8b9d-e82b-4158-8568-1a17660537d5",
+            "EbsOptimized": false,
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Attachment": {
+                        "AttachTime": "2023-09-05 06:21:02",
+                        "AttachmentId": "eni-attach-0caff9ea2fb107d84",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attaching",
+                        "NetworkCardIndex": 0
+                    },
+                    "Description": "",
+                    "Groups": [
+                        {
+                            "GroupName": "default",
+                            "GroupId": "sg-0a66b5b3e142dba8d"
+                        }
+                    ],
+                    "Ipv6Addresses": [],
+                    "MacAddress": "02:eb:74:aa:a6:56",
+                    "NetworkInterfaceId": "eni-0664a2f50b8f61ccd",
+                    "OwnerId": "190616427825",
+                    "PrivateDnsName": "ip-172-31-33-221.ap-south-1.compute.internal",
+                    "PrivateIpAddress": "172.31.33.221",
+                    "PrivateIpAddresses": [
+                        {
+                            "Primary": true,
+                            "PrivateDnsName": "ip-172-31-33-221.ap-south-1.compute.internal",
+                            "PrivateIpAddress": "172.31.33.221"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-04f0a8fa79cbeb73a",
+                    "VpcId": "vpc-0fb0e9e7e2cfeab1c",
+                    "InterfaceType": "interface"
+                }
+            ],
+            "RootDeviceName": "/dev/xvda",
+            "RootDeviceType": "ebs",
+            "SecurityGroups": [
+                {
+                    "GroupName": "default",
+                    "GroupId": "sg-0a66b5b3e142dba8d"
+                }
+            ],
+            "SourceDestCheck": true,
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "babu"
+                }
+            ],
+            "VirtualizationType": "hvm",
+            "CpuOptions": {
+                "CoreCount": 1,
+                "ThreadsPerCore": 1
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            },
+            "MetadataOptions": {
+                "State": "pending",
+                "HttpTokens": "required",
+                "HttpPutResponseHopLimit": 2,
+                "HttpEndpoint": "enabled",
+                "HttpProtocolIpv6": "disabled",
+                "InstanceMetadataTags": "disabled"
+            },
+            "EnclaveOptions": {
+                "Enabled": false
+            },
+            "BootMode": "uefi-preferred",
+            "PrivateDnsNameOptions": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "MaintenanceOptions": {
+                "AutoRecovery": "default"
+            },
+            "CurrentInstanceBootMode": "legacy-bios"
+        }
+    ],
+    "OwnerId": "190616427825",
+    "ReservationId": "r-09a588bdcadb853fc",
+    "ResponseMetadata": {
+        "RequestId": "733b82c4-59d6-4caa-99b4-96e3fba89046",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+            "x-amzn-requestid": "733b82c4-59d6-4caa-99b4-96e3fba89046",
+            "cache-control": "no-cache, no-store",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "vary": "accept-encoding",
+            "content-type": "text/xml;charset=UTF-8",
+            "content-length": "5841",
+            "date": "Tue, 05 Sep 2023 06:21:01 GMT",
+            "server": "AmazonEC2"
+        },
+        "RetryAttempts": 0
+    }
+}
