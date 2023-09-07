@@ -7,7 +7,7 @@ pipeline {
                 // Define the Git repository URL and credentials (if required)
                 script {
                     def gitRepoUrl = 'https://github.com/rohanmane21/Python.git'
-                    def gitCredentialsId = 'git-token' // Optional, if using credentials
+                    def gitCredentialsId = 'Git-Token' // Optional, if using credentials
                     
                     // Clone the repository
                     checkout([$class: 'GitSCM', 
