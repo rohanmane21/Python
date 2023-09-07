@@ -1,15 +1,27 @@
 pipeline {
     agent any
+    
     stages {
-        stage("Clone Git Repository") {
+        stage('Clone Repository') {
             steps {
-                git(
-                    git branch: 'Testing', credentialsId: 'git', url: 'https://github.com/rohanmane21/Python.git',
-                    branch: "Testing",
-                    changelog: true,
-                    poll: true
-                )
+                // Define the Git repository URL and credentials (if required)
+                script {
+                    def gitRepoUrl = 'https://github.com/rohanmane21/Python.git'
+                    def gitCredentialsId = 'git-token' // Optional, if using credentials
+                    
+                    // Clone the repository
+                    checkout([$class: 'GitSCM', 
+                        branches: [[name: '*/Testing']], 
+                        doGenerateSubmoduleConfigurations: false, 
+                        extensions: [], 
+                        userRemoteConfigs: [[credentialsId: gitCredentialsId, url: gitRepoUrl]]
+                    ])
+                }
             }
         }
+        
+        // Add more stages for building, testing, deploying, etc.
     }
+    
+    // Post-build actions, notifications, etc.
 }
