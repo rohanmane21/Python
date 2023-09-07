@@ -21,7 +21,9 @@ pipeline {
         }
         
         stage("Run Python file"){
-            sh 'test.py'
+            steps{
+                sh 'python test.py'
+            }
         }// Add more stages for building, testing, deploying, etc.
     }
     
