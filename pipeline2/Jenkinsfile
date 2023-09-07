@@ -20,7 +20,9 @@ pipeline {
             }
         }
         
-        // Add more stages for building, testing, deploying, etc.
+        stage("Run Python file"){
+            sh 'test.py'
+        }// Add more stages for building, testing, deploying, etc.
     }
     
     // Post-build actions, notifications, etc.
