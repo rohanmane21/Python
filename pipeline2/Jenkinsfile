@@ -32,7 +32,7 @@ pipeline {
                 }
             }
         }
-    }// Add more stages for building, testing, deploying, etc.
+    }
     
     post {
         success {
