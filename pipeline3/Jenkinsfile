@@ -1,43 +1,60 @@
 pipeline {
     agent any
-
-    environment {
-        AWS_ACCESS_KEY_ID = credentials('admin')
-        AWS_SECRET_ACCESS_KEY = credentials('AKIASYYM73UY4Q7QQNWO')
-        AWS_REGION = 'ap-south-1'  // Set your desired AWS region here
-    }
-
     stages {
-        stage('Clone Repository') {
+        stage('Example') {
             steps {
-                // Define the Git repository URL and credentials (if required)
                 script {
-                    def gitRepoUrl = 'https://github.com/rohanmane21/Python.git'
-                    def gitCredentialsId = 'Git-Token' // Optional, if using credentials
-                    
-                    // Clone the repository
-                    checkout([$class: 'GitSCM', 
-                        branches: [[name: '*/Testing']], 
-                        doGenerateSubmoduleConfigurations: false, 
-                        extensions: [], 
-                        userRemoteConfigs: [[credentialsId: gitCredentialsId, url: gitRepoUrl]]
-                    ])
+                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
+                                      credentialsId: 'admin',
+                                      accessKeyVariable: 'AKIASYYM73UY4Q7QQNWO',
+                                      secretKeyVariable: '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']]) {
+                    sh 'aws ec2 describe-instances --region ap-south-1'
+                                          
+                                      }
                 }
             }
         }
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
-        stage('Create EC2 Instance') {
-            steps {
-                sh 'python create_instance.py'
-            }
-        }
     }
-}
+}// pipeline {
+//     agent any
+
+//     environment {
+//         AWS_ACCESS_KEY_ID = credentials('admin')
+//         AWS_SECRET_ACCESS_KEY = credentials('AKIASYYM73UY4Q7QQNWO')
+//         AWS_REGION = 'ap-south-1'  // Set your desired AWS region here
+//     }
+
+//     stages {
+//         stage('Clone Repository') {
+//             steps {
+//                 // Define the Git repository URL and credentials (if required)
+//                 script {
+//                     def gitRepoUrl = 'https://github.com/rohanmane21/Python.git'
+//                     def gitCredentialsId = 'Git-Token' // Optional, if using credentials
+                    
+//                     // Clone the repository
+//                     checkout([$class: 'GitSCM', 
+//                         branches: [[name: '*/Testing']], 
+//                         doGenerateSubmoduleConfigurations: false, 
+//                         extensions: [], 
+//                         userRemoteConfigs: [[credentialsId: gitCredentialsId, url: gitRepoUrl]]
+//                     ])
+//                 }
+//             }
+//         }
+//         stage('Checkout') {
+//             steps {
+//                 checkout scm
+//             }
+//         }
+
+//         stage('Create EC2 Instance') {
+//             steps {
+//                 sh 'python create_instance.py'
+//             }
+//         }
+//     }
+// }
 // al we created.
 
 // pipeline {
