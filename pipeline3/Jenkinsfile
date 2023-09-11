@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('test AWS credentials') {
             steps {
-                withAWS(credentials: 'new', region: 'ap-south-1') 
+                withAWS(credentials: 'admin', region: 'ap-south-1') 
                 {
                     sh 'python pipeline3/create_instance.py'
                 }
