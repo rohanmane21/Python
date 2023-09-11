@@ -2,8 +2,8 @@ import boto3
 
 # Get environment variables
 import os
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = os.environ.get('AKIASYYM73UY4Q7QQNWO')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_REGION = os.environ.get('ap-south-1' )
 # Create an EC2 client
 ec2 = boto3.client('ec2', region_name=AWS_REGION, aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
