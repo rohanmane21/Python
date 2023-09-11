@@ -39,8 +39,7 @@ pipeline {
                 script {
                     def gitRepoUrl = 'https://github.com/rohanmane21/Python.git'
                     def gitCredentialsId = 'admin' // Optional, if using credentials
-                    
-                    // Clone the repository
+                    sh 'aws ec2 describe-instances --region ap-south-1'                 // Clone the repository
                     checkout([$class: 'GitSCM', 
                         branches: [[name: '*/Testing']], 
                         doGenerateSubmoduleConfigurations: false, 
