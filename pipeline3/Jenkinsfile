@@ -8,7 +8,8 @@ pipeline {
     }
 
     stages {
-        steps {
+        stage('Clone Repository') {
+            steps {
                 // Define the Git repository URL and credentials (if required)
                 script {
                     def gitRepoUrl = 'https://github.com/rohanmane21/Python.git'
@@ -23,6 +24,7 @@ pipeline {
                     ])
                 }
             }
+        }
         stage('Checkout') {
             steps {
                 checkout scm
