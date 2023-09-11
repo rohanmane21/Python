@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         AWS_ACCESS_KEY_ID = credentials('admin')
-        AWS_SECRET_ACCESS_KEY = credentials('KmmFRTfbmn0r3d+FRZAo0BGcUrQpSEx6pM+UYTkK')
+        AWS_SECRET_ACCESS_KEY = credentials('AKIASYYM73UY4Q7QQNWO')
         AWS_REGION = 'ap-south-1'  // Set your desired AWS region here
     }
 
