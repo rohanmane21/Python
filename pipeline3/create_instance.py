@@ -13,7 +13,7 @@ ec2 = boto3.client('ec2')
 instance_params = {
     'ImageId': 'ami-02bb7d8191b50f4bb',  
     'InstanceType': 't2.micro', 
-    'KeyName': 'jenkins.pem',  
+    'KeyName': 'jenkins',  
     'MinCount': 1,
     'MaxCount': 1,
     'TagSpecifications':[
