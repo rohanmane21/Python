@@ -58,7 +58,7 @@ pipeline {
 
         stage('Create EC2 Instance') {
             steps {
-                sh 'python create_instance.py'
+                sh 'python pipeline3/create_instance.py'
             }
         }
     }
