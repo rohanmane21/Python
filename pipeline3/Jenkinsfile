@@ -1,21 +1,34 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('test AWS credentials') {
             steps {
-                script {
-                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
-                                      credentialsId: 'admin',
-                                      accessKeyVariable: 'AKIASYYM73UY4Q7QQNWO',
-                                      secretKeyVariable: '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']]) {
-                    sh 'aws ec2 describe-instances --region ap-south-1'
-                                          
-                                      }
+                withAWS(credentials: 'new', region: 'ap-south-1') 
+                {
+                    sh 'python pipeline3/create_instance.py'
                 }
             }
         }
     }
 }// pipeline {
+//     agent any
+//     stages {
+//         stage('Example') {
+//             steps {
+//                 script {
+//                      withCredentials([[$class: 'AmazonWebServicesCredentialsBinding',
+//                                       credentialsId: 'admin',
+//                                       accessKeyVariable: 'AKIASYYM73UY4Q7QQNWO',
+//                                       secretKeyVariable: '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']]) {
+//                     sh 'aws ec2 describe-instances --region ap-south-1'
+                                          
+//                                       }
+//                 }
+//             }
+//         }
+//     }
+// }
+// pipeline {
 //     agent any
 
 //     environment {
