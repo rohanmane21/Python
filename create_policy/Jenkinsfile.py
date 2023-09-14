@@ -6,7 +6,7 @@ def create_policy():
     with open('pipeline4/policy.json', 'r') as f:
         policy_document = json.load(f)
     response = user.create_policy(
-        PolicyName="All_Policies",
+        PolicyName="All_Policy",
         PolicyDocument=json.dumps(policy_document) 
     )
-create_policy()
+# create_policy()
