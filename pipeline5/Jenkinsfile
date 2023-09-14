@@ -1,34 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage{
-            steps{
-                withAWS(credentials: 'admin', region: 'ap-south-1') 
-          }
-          
-        }
-        stage('Create IAM User') {
+        stage('Create Policy') {
             steps {
-                script {
-                    // Call the Create IAM User Pipeline
-                    sh 'python create_user/Jenkinsfile.py'
-                }
+                withAWS(credentials: 'admin', region: 'ap-south-1')   
             }
         }
-        stage('Create IAM Policy') {
+        stage('Policy') {
             steps {
-                script {
-                    // Call the Create IAM Policy Pipeline
-                    sh 'python create_policy/Jenkinsfile.py'
-                }
+                build job: 'create_policy', wait: false
             }
         }
-        stage('Attach Policy to User') {
+        stage('User') {
             steps {
-                script {
-                    // Call the Attach Policy to User Pipeline
-                    sh 'python map_policy/Jenkinsfile.py'
-                }
+                build job: 'create_user', wait: false
+            }
+        }
+        stage('Map') {
+            steps {
+                build job: 'map_policy', wait: true
             }
         }
     }
