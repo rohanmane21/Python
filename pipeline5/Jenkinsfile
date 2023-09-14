@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Create Policy') {
             steps {
-                withAWS(credentials: 'admin', region: 'ap-south-1')   
+                withAWS(credentials: 'admin', region: 'ap-south-1')  
+                    {
+                        echo 'Hello'
+                    }
             }
         }
         stage('Policy') {
