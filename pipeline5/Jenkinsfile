@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    stages {
+        stage{
+            steps{
+                withAWS(credentials: 'admin', region: 'ap-south-1') 
+          }
+          
+        }
+        stage('Create IAM User') {
+            steps {
+                script {
+                    // Call the Create IAM User Pipeline
+                    sh 'python create_user/Jenkinsfile.py'
+                }
+            }
+        }
+        stage('Create IAM Policy') {
+            steps {
+                script {
+                    // Call the Create IAM Policy Pipeline
+                    sh 'python create_policy/Jenkinsfile.py'
+                }
+            }
+        }
+        stage('Attach Policy to User') {
+            steps {
+                script {
+                    // Call the Attach Policy to User Pipeline
+                    sh 'python map_policy/Jenkinsfile.py'
+                }
+            }
+        }
+    }
+}
