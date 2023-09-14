@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Create IAM User') {
             steps {
-                // Add steps to create an IAM user
-                sh 'python create_user/create_user.py'
+                withAWS(credentials: 'admin', region: 'ap-south-1') 
+                {
+                    sh 'python create_user/create_user.py'
+                }
             }
         }
     }
