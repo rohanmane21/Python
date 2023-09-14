@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Create Policy') {
+            steps {
+                // Add steps to create an IAM policy
+                sh 'python create_policy/create_policy.py'
+            }
+        }
+    }
+}
