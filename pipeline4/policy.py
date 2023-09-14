@@ -10,9 +10,14 @@ def create_policy():
         PolicyDocument=json.dumps(policy_document) 
     )
 def create_user():
-    response = iam.create_user(
+    response = user.create_user(
         UserName='boburao'
     )
-    print(response)
-
-create_policy()
+create_user()
+def attach_policy():
+    response = user.attach_user_policy(
+    UserName= 'boburao',
+    PolicyArn='arn:aws:iam::190616427825:policy/All_Policy'
+)
+attach_policy()
+# create_policy()
