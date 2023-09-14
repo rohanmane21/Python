@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Create Policy') {
             steps {
-                // Add steps to create an IAM policy
-                sh 'python create_policy/create_policy.py'
+                withAWS(credentials: 'admin', region: 'ap-south-1') 
+                {
+                    sh 'python create_policy/create_policy.py'
+                }
             }
         }
     }
