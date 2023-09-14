@@ -4,7 +4,7 @@ pipeline {
         stage('Create IAM User') {
             steps {
                 // Add steps to create an IAM user
-                sh 'python create_user.py'
+                sh 'python create_user/create_user.py'
             }
         }
     }
