@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Attach Policy') {
+            steps {
+                // Add steps to attach a policy to a user
+                sh 'python map_policy/map.py'
+            }
+        }
+    }
+}
