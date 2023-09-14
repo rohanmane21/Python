@@ -7,7 +7,7 @@
 			"Action": [
 				"ec2:*"
 			],
-			"Resource": []
+			"Resource": "arn:aws:ec2:::*"
 		}
 	]
 }
