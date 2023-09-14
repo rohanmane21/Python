@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Create IAM User') {
+            steps {
+                // Add steps to create an IAM user
+                sh 'python create_user.py'
+            }
+        }
+    }
+}
