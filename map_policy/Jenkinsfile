@@ -1,10 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Attach Policy') {
+        stage('Create Policy') {
             steps {
-                // Add steps to attach a policy to a user
-                sh 'python map_policy/map.py'
+                withAWS(credentials: 'admin', region: 'ap-south-1') 
+                {
+                    sh 'python map_policy/map.py'
+                }
             }
         }
     }
