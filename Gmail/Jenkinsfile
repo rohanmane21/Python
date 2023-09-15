@@ -14,7 +14,6 @@ pipeline {
                     git branch: 'Testing', credentialsId: 'git-token', url: env.GIT_REPO_URL
                 }
             }
-    }
     stage('Create IAM User') {
             steps {
                 script {
