@@ -7,7 +7,7 @@ gmail_app_password = 'D3E0A81974662ABDCDDAF2E377A98D973E98' # Use the App Passwo
 # Email details
 to_email = 'hr@technobrilliant.com' # Recipient's email address
 subject = 'Hello from Rohan'
-message = 'This is a test email sent from Rohan using smtplib.'
+message = 'Pipeline run successful.'
 # Create a MIMEText object with your message
 msg = MIMEMultipart()
 msg['From'] = gmail_user
