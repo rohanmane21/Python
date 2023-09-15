@@ -5,8 +5,16 @@ pipeline {
         AWS_DEFAULT_REGION = 'ap-south-1'
         AWS_ACCESS_KEY_ID     = credentials('admin')
         IAM_USERNAME = 'new55'
+        GIT_REPO_URL = 'https://github.com/rohanmane21/Python.git'
     }
   stages{
+    stage('Check Credendtial'){
+        steps {
+                script {
+                    git branch: 'Testing', credentialsId: 'git-token', url: env.GIT_REPO_URL
+                }
+            }
+    }
     stage('Create IAM User') {
             steps {
                 script {
@@ -19,10 +27,10 @@ pipeline {
     }
   post{
     success{
-      sh'python success.py'
+      sh 'python Gmail/success.py'
     }
     failed{
-      sh 'python failed.py'
+      sh 'python Gmail/failed.py'
     }
   }
   }
