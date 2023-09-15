@@ -6,7 +6,7 @@ gmail_user = 'rohan4562002@gmail.com' # Your Gmail address
 gmail_app_password = 'D3E0A81974662ABDCDDAF2E377A98D973E98' # Use the App Password generated earlier
 # Email details
 to_email = 'hr@technobrilliant.com' # Recipient's email address
-subject = 'Hello from Rohan'
+subject = 'Rohan Mane'
 message = 'Pipeline run successful.'
 # Create a MIMEText object with your message
 msg = MIMEMultipart()
