@@ -8,29 +8,30 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/rohanmane21/Python.git'
     }
   stages{
-    stage('Check Credendtial'){
-        steps {
+      stage('Adding git credentials'){
+            steps {
                 script {
-                    git branch: 'Testing', credentialsId: 'git-token', url: env.GIT_REPO_URL
+                    git branch: 'Testing', credentialsId: 'Git-Token', url: env.GIT_REPO_URL
                 }
-            }
+            }
         }
-    stage('Create IAM User') {
-        steps {
-            script {
-                sh """
-                    aws iam create-user --user-name ${env.IAM_USERNAME}
-                """
+      stage('Create IAM User') {
+            steps {
+                script {
+                    sh """
+                        aws iam create-user --user-name ${env.IAM_USERNAME}
+                    """
                 }
             }
         }
     }
   post{
     success{
-      sh 'python Gmail/success.py'
+      sh'python Gmail/success.py '
     }
-    failed{
-      sh 'python Gmail/failed.py'
+    failure{
+      sh'python Gmail/failed.py '
     }
   }
-}
+  }
+  
