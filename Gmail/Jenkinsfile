@@ -1,1 +1,28 @@
+pipeline {
+    agent any
 
+    environment {
+        AWS_DEFAULT_REGION = 'ap-south-1'
+        AWS_ACCESS_KEY_ID     = credentials('admin')
+        IAM_USERNAME = 'new55'
+    }
+  stages{
+    stage('Create IAM User') {
+            steps {
+                script {
+                    sh """
+                        aws iam create-user --user-name ${env.IAM_USERNAME}
+                    """
+                }
+            }
+        }
+    }
+  post{
+    success{
+      sh'python success.py'
+    }
+    failed{
+      sh 'python failed.py'
+    }
+  }
+  }
